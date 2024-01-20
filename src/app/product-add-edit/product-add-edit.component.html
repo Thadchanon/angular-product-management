@@ -1,0 +1,104 @@
+<div mat-dialog-title>
+  <h1>Product Form</h1>
+</div>
+<form [formGroup]="productForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Product</mat-label>
+        <mat-select formControlName="product">
+          <mat-option *ngFor="let val of product" [value]="val">{{
+            val
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Location</mat-label>
+        <mat-select formControlName="location">
+          <mat-option *ngFor="let val of location" [value]="val">{{
+            val
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>On Hand</mat-label>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="onHandNumber"
+          step="1.00"
+          (ngModelChange)="onOnHandChange($event)"
+          min="0"
+          formControlName="onHand"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Forecast</mat-label>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="forecastNumber"
+          step="1.00"
+          (ngModelChange)="onForecastChange($event)"
+          formControlName="forecast"
+        />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Route</mat-label>
+        <mat-select formControlName="route">
+          <mat-option *ngFor="let val of route" [value]="val">{{
+            val
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Min</mat-label>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="minNumber"
+          step="1.00"
+          (ngModelChange)="onMinChange($event)"
+          min="0"
+          formControlName="min"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Max</mat-label>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="maxNumber"
+          step="1.00"
+          (ngModelChange)="onMaxChange($event)"
+          min="0"
+          formControlName="max"
+        />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>To Order</mat-label>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="toOrderNumber"
+          step="1.00"
+          (ngModelChange)="onToOrderChange($event)"
+          min="0"
+          formControlName="toOrder"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button>Cancel</button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </div>
+</form>
