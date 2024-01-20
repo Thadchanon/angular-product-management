@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ProductService } from '../services/product.service';
+import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-product-add-edit',
@@ -9,7 +11,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class ProductAddEditComponent {
   productForm: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(
+    private _formBuilder: FormBuilder,
+    private _productService: ProductService,
+    private _dialogRef: DialogRef<ProductAddEditComponent>
+  ) {
     this.productForm = this._formBuilder.group({
       product: '',
       location: '',
@@ -24,7 +30,15 @@ export class ProductAddEditComponent {
 
   onFormSubmit() {
     if (this.productForm.valid) {
-      console.log(this.productForm.value);
+      this._productService.addProduct(this.productForm.value).subscribe({
+        next: (val: any) => {
+          alert('Product added successfully');
+          this._dialogRef.close();
+        },
+        error: (err: any) => {
+          console.error(err);
+        },
+      });
     }
   }
 

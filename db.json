@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    {
+      "id": "6585",
+      "product": "[E-COM06] Coner Desk",
+      "location": "WH/Stock/1",
+      "onHand": "1.00",
+      "forecast": "1.00",
+      "route": "Manufacture/1",
+      "min": "1.00",
+      "max": "1.00",
+      "toOrder": "1.00"
+    },
+
+    {
+      "id": "d2b8",
+      "product": "[E-COM09] Large Desk",
+      "location": "WH/Stock/2",
+      "onHand": "1.00",
+      "forecast": "1.00",
+      "route": "Manufacture/2",
+      "min": "1.00",
+      "max": "1.00",
+      "toOrder": "1.00"
+    }
+  ]
+}
