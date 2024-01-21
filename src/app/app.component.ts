@@ -39,7 +39,12 @@ export class AppComponent implements OnInit {
   }
 
   openAddEditProductForm() {
-    this._dialog.open(ProductAddEditComponent);
+    const dialogRef = this._dialog.open(ProductAddEditComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        this.getProductList();
+      },
+    });
   }
 
   getProductList() {
@@ -62,5 +67,15 @@ export class AppComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  deleteProduct(id: string) {
+    this._productService.deleteProduct(id).subscribe({
+      next: (res) => {
+        alert('Product deleted!');
+        this.getProductList();
+      },
+      error: console.log,
+    });
   }
 }

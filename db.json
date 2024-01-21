@@ -18,39 +18,6 @@
   },
   "products": [
     {
-      "id": "6585",
-      "product": "[E-COM06] Coner Desk",
-      "location": "WH/Stock/1",
-      "onHand": "1.00",
-      "forecast": "1.00",
-      "route": "Manufacture/1",
-      "min": "1.00",
-      "max": "1.00",
-      "toOrder": "1.00"
-    },
-    {
-      "id": "d2b8",
-      "product": "[E-COM09] Large Desk",
-      "location": "WH/Stock/2",
-      "onHand": "1.00",
-      "forecast": "1.00",
-      "route": "Manufacture/2",
-      "min": "1.00",
-      "max": "1.00",
-      "toOrder": "1.00"
-    },
-    {
-      "id": "6ca3",
-      "product": "[E-COM09] Large Desk",
-      "location": "WH/Stock/3",
-      "onHand": "2.00",
-      "forecast": "3.00",
-      "route": "Manufacture/1",
-      "min": "2.00",
-      "max": "2.00",
-      "toOrder": "2.00"
-    },
-    {
       "id": "d914",
       "product": "[E-COM06] Coner Desk",
       "location": "WH/Stock/2",
@@ -73,15 +40,48 @@
       "toOrder": "2.00"
     },
     {
-      "id": "ad38",
+      "id": "c4e1",
       "product": "[E-COM09] Large Desk",
       "location": "WH/Stock/2",
       "onHand": "2.00",
-      "forecast": "2.00",
-      "route": "Manufacture/3",
+      "forecast": "-1.00",
+      "route": "Manufacture/2",
       "min": "2.00",
-      "max": "3.00",
-      "toOrder": "4.00"
+      "max": "2.00",
+      "toOrder": "2.00"
+    },
+    {
+      "id": "b283",
+      "product": "[E-COM06] Coner Desk",
+      "location": "WH/Stock/2",
+      "onHand": "2.00",
+      "forecast": "2.00",
+      "route": "Manufacture/2",
+      "min": "1.00",
+      "max": "1.00",
+      "toOrder": "2.00"
+    },
+    {
+      "id": "1ecf",
+      "product": "[E-COM06] Coner Desk",
+      "location": "WH/Stock/2",
+      "onHand": "1.00",
+      "forecast": "1.00",
+      "route": "Manufacture/2",
+      "min": "1.00",
+      "max": "1.00",
+      "toOrder": "2.00"
+    },
+    {
+      "id": "8bf2",
+      "product": "[E-COM06] Coner Desk",
+      "location": "WH/Stock/2",
+      "onHand": "1.00",
+      "forecast": "1.00",
+      "route": "Manufacture/1",
+      "min": "1.00",
+      "max": "1.00",
+      "toOrder": "1.00"
     }
   ]
 }

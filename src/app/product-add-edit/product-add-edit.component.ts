@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProductService } from '../services/product.service';
-import { DialogRef } from '@angular/cdk/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-product-add-edit',
@@ -14,7 +14,7 @@ export class ProductAddEditComponent {
   constructor(
     private _formBuilder: FormBuilder,
     private _productService: ProductService,
-    private _dialogRef: DialogRef<ProductAddEditComponent>
+    private _dialogRef: MatDialogRef<ProductAddEditComponent>
   ) {
     this.productForm = this._formBuilder.group({
       product: '',
@@ -33,7 +33,7 @@ export class ProductAddEditComponent {
       this._productService.addProduct(this.productForm.value).subscribe({
         next: (val: any) => {
           alert('Product added successfully');
-          this._dialogRef.close();
+          this._dialogRef.close(true);
         },
         error: (err: any) => {
           console.error(err);
