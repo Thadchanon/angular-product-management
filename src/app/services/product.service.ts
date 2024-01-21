@@ -12,6 +12,10 @@ export class ProductService {
     return this._http.post('http://localhost:3000/products', data);
   }
 
+  updateProduct(id: string, data: any): Observable<any> {
+    return this._http.put(`http://localhost:3000/products/${id}`, data);
+  }
+
   getProductList(): Observable<any> {
     return this._http.get('http://localhost:3000/products');
   }

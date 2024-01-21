@@ -1,20 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProductService } from '../services/product.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-product-add-edit',
   templateUrl: './product-add-edit.component.html',
   styleUrl: './product-add-edit.component.scss',
 })
-export class ProductAddEditComponent {
+export class ProductAddEditComponent implements OnInit {
   productForm: FormGroup;
 
   constructor(
     private _formBuilder: FormBuilder,
     private _productService: ProductService,
-    private _dialogRef: MatDialogRef<ProductAddEditComponent>
+    private _dialogRef: MatDialogRef<ProductAddEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.productForm = this._formBuilder.group({
       product: '',
@@ -28,17 +29,35 @@ export class ProductAddEditComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.productForm.patchValue(this.data);
+  }
+
   onFormSubmit() {
     if (this.productForm.valid) {
-      this._productService.addProduct(this.productForm.value).subscribe({
-        next: (val: any) => {
-          alert('Product added successfully');
-          this._dialogRef.close(true);
-        },
-        error: (err: any) => {
-          console.error(err);
-        },
-      });
+      if (this.data) {
+        this._productService
+          .updateProduct(this.data.id, this.productForm.value)
+          .subscribe({
+            next: (val: any) => {
+              alert('Product updated');
+              this._dialogRef.close(true);
+            },
+            error: (err: any) => {
+              console.error(err);
+            },
+          });
+      } else {
+        this._productService.addProduct(this.productForm.value).subscribe({
+          next: (val: any) => {
+            alert('Product added successfully');
+            this._dialogRef.close(true);
+          },
+          error: (err: any) => {
+            console.error(err);
+          },
+        });
+      }
     }
   }
 
