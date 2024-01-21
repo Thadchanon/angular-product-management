@@ -91,29 +91,4 @@ export class ProductAddEditComponent implements OnInit {
     'Manufacture/4',
     'Manufacture/5',
   ];
-
-  onOnHandChange(event: any) {
-    const onHandValue = Number.parseFloat(event).toFixed(2);
-    this.productForm.get('onHand')?.setValue(onHandValue);
-  }
-
-  onForecastChange(event: any) {
-    const forecastValue = Number.parseFloat(event).toFixed(2);
-    this.productForm.get('forecast')?.setValue(forecastValue);
-  }
-
-  onMinChange(event: any) {
-    const minValue = Number.parseFloat(event).toFixed(2);
-    this.productForm.get('min')?.setValue(minValue);
-  }
-
-  onMaxChange(event: any) {
-    const maxValue = Number.parseFloat(event).toFixed(2);
-    this.productForm.get('max')?.setValue(maxValue);
-  }
-
-  onToOrderChange(event: any) {
-    const toOrderValue = Number.parseFloat(event).toFixed(2);
-    this.productForm.get('toOrder')?.setValue(toOrderValue);
-  }
 }

@@ -26,21 +26,22 @@
         <mat-label>On Hand</mat-label>
         <input
           matInput
-          type="number"
-          step="1.00"
-          (ngModelChange)="onOnHandChange($event)"
-          min="0"
+          type="text"
           formControlName="onHand"
+          mask="separator.2"
+          [leadZero]="true"
+          thousandSeparator=","
         />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Forecast</mat-label>
         <input
           matInput
-          type="number"
-          step="1.00"
-          (ngModelChange)="onForecastChange($event)"
+          type="text"
           formControlName="forecast"
+          mask="separator.2"
+          [leadZero]="true"
+          thousandSeparator=","
         />
       </mat-form-field>
     </div>
@@ -59,22 +60,24 @@
         <mat-label>Min</mat-label>
         <input
           matInput
-          type="number"
-          step="1.00"
-          (ngModelChange)="onMinChange($event)"
+          type="text"
           min="0"
           formControlName="min"
+          mask="separator.2"
+          [leadZero]="true"
+          thousandSeparator=","
         />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Max</mat-label>
         <input
           matInput
-          type="number"
-          step="1.00"
-          (ngModelChange)="onMaxChange($event)"
+          type="text"
           min="0"
           formControlName="max"
+          mask="separator.2"
+          [leadZero]="true"
+          thousandSeparator=","
         />
       </mat-form-field>
     </div>
@@ -83,11 +86,12 @@
         <mat-label>To Order</mat-label>
         <input
           matInput
-          type="number"
-          step="1.00"
-          (ngModelChange)="onToOrderChange($event)"
+          type="text"
           min="0"
           formControlName="toOrder"
+          mask="separator.2"
+          [leadZero]="true"
+          thousandSeparator=","
         />
       </mat-form-field>
     </div>
