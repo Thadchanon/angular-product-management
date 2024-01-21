@@ -27,7 +27,6 @@
         <input
           matInput
           type="number"
-          [(ngModel)]="onHandNumber"
           step="1.00"
           (ngModelChange)="onOnHandChange($event)"
           min="0"
@@ -39,7 +38,6 @@
         <input
           matInput
           type="number"
-          [(ngModel)]="forecastNumber"
           step="1.00"
           (ngModelChange)="onForecastChange($event)"
           formControlName="forecast"
@@ -62,7 +60,6 @@
         <input
           matInput
           type="number"
-          [(ngModel)]="minNumber"
           step="1.00"
           (ngModelChange)="onMinChange($event)"
           min="0"
@@ -74,7 +71,6 @@
         <input
           matInput
           type="number"
-          [(ngModel)]="maxNumber"
           step="1.00"
           (ngModelChange)="onMaxChange($event)"
           min="0"
@@ -88,7 +84,6 @@
         <input
           matInput
           type="number"
-          [(ngModel)]="toOrderNumber"
           step="1.00"
           (ngModelChange)="onToOrderChange($event)"
           min="0"

@@ -19,6 +19,22 @@
 
   <div class="table-container">
     <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox
+            (change)="selectAll($event)"
+            color="primary"
+          ></mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox
+            [(ngModel)]="row.selected"
+            (change)="selectRow(row)"
+            color="primary"
+          ></mat-checkbox>
+        </td>
+      </ng-container>
+
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
         <td mat-cell *matCellDef="let row">{{ row.id }}</td>

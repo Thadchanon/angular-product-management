@@ -14,6 +14,7 @@ import { CoreService } from './core/core.service';
 })
 export class AppComponent implements OnInit {
   displayedColumns: string[] = [
+    'select',
     'id',
     'product',
     'location',
@@ -91,5 +92,24 @@ export class AppComponent implements OnInit {
         this.getProductList();
       },
     });
+  }
+
+  selectedRows: any[] = [];
+
+  // Method to select all rows
+  selectAll(event: any) {
+    this.dataSource.data.forEach((row) => (row.selected = event.checked));
+    this.updateSelectedRows();
+  }
+
+  // Method to select a specific row
+  selectRow(row: any) {
+    row.selected = !row.selected;
+    this.updateSelectedRows();
+  }
+
+  // Update the array of selected rows
+  updateSelectedRows() {
+    this.selectedRows = this.dataSource.data.filter((row) => row.selected);
   }
 }

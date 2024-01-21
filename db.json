@@ -82,6 +82,17 @@
       "min": "1.00",
       "max": "1.00",
       "toOrder": "1.00"
+    },
+    {
+      "id": "6e16",
+      "product": "[E-COM06] Coner Desk",
+      "location": "WH/Stock/1",
+      "onHand": "2.00",
+      "forecast": "2.00",
+      "route": "Manufacture/2",
+      "min": "2.00",
+      "max": "2.00",
+      "toOrder": "3.00"
     }
   ]
 }

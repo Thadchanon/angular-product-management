@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CoreService } from '../core/core.service';
@@ -20,14 +20,14 @@ export class ProductAddEditComponent implements OnInit {
     private _coreService: CoreService
   ) {
     this.productForm = this._formBuilder.group({
-      product: '',
-      location: '',
-      onHand: '',
-      forecast: '',
-      route: '',
-      min: '',
-      max: '',
-      toOrder: '',
+      product: new FormControl(''),
+      location: new FormControl(''),
+      onHand: new FormControl(''),
+      forecast: new FormControl(''),
+      route: new FormControl(''),
+      min: new FormControl(''),
+      max: new FormControl(''),
+      toOrder: new FormControl(''),
     });
   }
 
@@ -92,28 +92,28 @@ export class ProductAddEditComponent implements OnInit {
     'Manufacture/5',
   ];
 
-  onHandNumber: any;
   onOnHandChange(event: any) {
-    this.onHandNumber = Number.parseFloat(event).toFixed(2);
+    const onHandValue = Number.parseFloat(event).toFixed(2);
+    this.productForm.get('onHand')?.setValue(onHandValue);
   }
 
-  forecastNumber: any;
   onForecastChange(event: any) {
-    this.forecastNumber = Number.parseFloat(event).toFixed(2);
+    const forecastValue = Number.parseFloat(event).toFixed(2);
+    this.productForm.get('forecast')?.setValue(forecastValue);
   }
 
-  minNumber: any;
   onMinChange(event: any) {
-    this.minNumber = Number.parseFloat(event).toFixed(2);
+    const minValue = Number.parseFloat(event).toFixed(2);
+    this.productForm.get('min')?.setValue(minValue);
   }
 
-  maxNumber: any;
   onMaxChange(event: any) {
-    this.maxNumber = Number.parseFloat(event).toFixed(2);
+    const maxValue = Number.parseFloat(event).toFixed(2);
+    this.productForm.get('max')?.setValue(maxValue);
   }
 
-  toOrderNumber: any;
   onToOrderChange(event: any) {
-    this.toOrderNumber = Number.parseFloat(event).toFixed(2);
+    const toOrderValue = Number.parseFloat(event).toFixed(2);
+    this.productForm.get('toOrder')?.setValue(toOrderValue);
   }
 }
