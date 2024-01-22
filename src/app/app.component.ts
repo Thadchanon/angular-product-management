@@ -15,6 +15,7 @@ import { CoreService } from './core/core.service';
 export class AppComponent implements OnInit {
   displayedColumns: string[] = [
     'select',
+    'id',
     'product',
     'location',
     'onHand',
@@ -71,7 +72,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  deleteProduct(id: string) {
+  deleteProduct(id: number) {
     this._productService.deleteProduct(id).subscribe({
       next: (res) => {
         this._coreService.openSnackBar('Product deleted!', 'done');

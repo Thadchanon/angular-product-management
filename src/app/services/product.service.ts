@@ -1,24 +1,42 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
+interface Product {
+  id: number;
+  product: string;
+  location: string;
+  onHand: number;
+  forecast: number;
+  route: number;
+  min: number;
+  max: number;
+  toOrder: number;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
   private localStorageKey = 'productData';
 
-  private getProductsFromLocalStorage(): any[] {
+  private getProductsFromLocalStorage(): Product[] {
     const data = localStorage.getItem(this.localStorageKey);
     return data ? JSON.parse(data) : [];
   }
 
-  private setProductsToLocalStorage(products: any[]): void {
+  private setProductsToLocalStorage(products: Product[]): void {
     localStorage.setItem(this.localStorageKey, JSON.stringify(products));
   }
 
-  addProduct(data: any): Observable<any> {
+  addProduct(data: Product): Observable<Product> {
     try {
       const products = this.getProductsFromLocalStorage();
+      const maxId = products.reduce(
+        (max, product) => (product.id > max ? product.id : max),
+        0
+      );
+      data.id = maxId + 1;
+
       products.push(data);
       this.setProductsToLocalStorage(products);
       return of(data);
@@ -27,7 +45,7 @@ export class ProductService {
     }
   }
 
-  updateProduct(id: string, data: any): Observable<any> {
+  updateProduct(id: number, data: Product): Observable<Product> {
     try {
       const products = this.getProductsFromLocalStorage();
       const index = products.findIndex((product) => product.id === id);
@@ -43,7 +61,7 @@ export class ProductService {
     }
   }
 
-  getProductList(): Observable<any> {
+  getProductList(): Observable<Product[]> {
     try {
       const products = this.getProductsFromLocalStorage();
       return of(products);
@@ -52,7 +70,7 @@ export class ProductService {
     }
   }
 
-  deleteProduct(id: string): Observable<any> {
+  deleteProduct(id: number): Observable<Product> {
     try {
       const products = this.getProductsFromLocalStorage();
       const index = products.findIndex((product) => product.id === id);
